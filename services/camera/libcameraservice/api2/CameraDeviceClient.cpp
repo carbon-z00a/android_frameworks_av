@@ -579,7 +579,11 @@ status_t CameraDeviceClient::flush(int64_t* lastFrameNumber) {
 }
 
 status_t CameraDeviceClient::dump(int fd, const Vector<String16>& args) {
-    String8 result;
+    return BasicClient::dump(fd, args);
+}
+
+
+status_t CameraDeviceClient::dumpClient(int fd, const Vector<String16>& args) {    String8 result;
     result.appendFormat("CameraDeviceClient[%d] (%p) dump:\n",
             mCameraId,
             getRemoteCallback()->asBinder().get());
